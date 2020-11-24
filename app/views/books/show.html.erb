@@ -6,6 +6,12 @@
 </p>
 
 <p>
+   <% if @book.image.attached? %>
+     <%= image_tag @book.image %>
+   <% end %>
+</p>
+ 
+<p>
   <strong>Number̲of̲pages:</strong>
   <%= @book.number̲of̲pages %>
 </p>
