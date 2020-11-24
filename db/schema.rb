@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_24_150856) do
+ActiveRecord::Schema.define(version: 2020_11_24_160037) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(version: 2020_11_24_150856) do
     t.integer "record_id", null: false
     t.integer "blob_id", null: false
     t.datetime "created_at", null: false
+    t.string "name"
+    t.integer "age"
+    t.index ["name"], name: "index_users_on_name", unique: true
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
@@ -48,7 +51,10 @@ ActiveRecord::Schema.define(version: 2020_11_24_150856) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.integer "age"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["name"], name: "index_users_on_name", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
